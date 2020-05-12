@@ -105,55 +105,21 @@ let System, __instantiateAsync, __instantiate;
   };
 })();
 
-System.register("deps", ["https://deno.land/std/fmt/colors.ts"], function (exports_1, context_1) {
+System.register("mod", [], function (exports_1, context_1) {
     "use strict";
     var __moduleName = context_1 && context_1.id;
-    return {
-        setters: [
-            function (colours_1) {
-                exports_1("colours", colours_1);
-            }
-        ],
-        execute: function () {
-        }
-    };
-});
-System.register("version", [], function (exports_2, context_2) {
-    "use strict";
-    var version;
-    var __moduleName = context_2 && context_2.id;
+    function add(...args) {
+        const reducer = (accumulator, current) => accumulator + current;
+        return args.reduce(reducer, 0);
+    }
+    exports_1("add", add);
     return {
         setters: [],
         execute: function () {
-            exports_2("version", version = "1.0.0");
-        }
-    };
-});
-System.register("mod", ["deps", "version"], function (exports_3, context_3) {
-    "use strict";
-    var deps_ts_1, version_ts_1;
-    var __moduleName = context_3 && context_3.id;
-    function padLeft(src, length, str) {
-        return src.padStart(length, str);
-    }
-    exports_3("padLeft", padLeft);
-    return {
-        setters: [
-            function (deps_ts_1_1) {
-                deps_ts_1 = deps_ts_1_1;
-            },
-            function (version_ts_1_1) {
-                version_ts_1 = version_ts_1_1;
-            }
-        ],
-        execute: function () {
-            if (context_3.meta.main) {
-                console.log(deps_ts_1.colours.cyan(`pad_left@${version_ts_1.version}`));
-            }
         }
     };
 });
 
 const __exp = __instantiate("mod");
-export const padLeft = __exp["padLeft"];
+export const add = __exp["add"];
 
