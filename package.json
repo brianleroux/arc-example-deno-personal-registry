@@ -1,0 +1,7 @@
+{
+  "scripts": {
+    "lint": "deno fmt src/modules",
+    "test": "deno test src/modules",
+    "build": "deno run -A build.ts"
+  }
+}
