@@ -5,7 +5,7 @@ exports.handler = async function handler() {
   let s3 = new aws.S3
   let items = await s3.getObject({
     Bucket: process.env.ARC_STATIC_BUCKET,
-    Key: process.env.ARC_STATIC_FOLDER,
+    Key: `${process.env.ARC_STATIC_FOLDER}/modules.json`,
   }).promise()
 
   return {

@@ -28,3 +28,16 @@ for await (const entry of Deno.readDir(modules)) {
     await Deno.writeFile(bundle, raw);
   }
 }
+
+// read /dist and get an array of module names
+const dist = join(Deno.cwd(), "dist");
+const list = join(Deno.cwd(), "dist", "modules.json");
+const versions = []
+for await (const entry of Deno.readDir(dist)) {
+  versions.push(entry.name)
+}
+// write out modules.json
+const enc = new TextEncoder();
+const self = (m: string)=> m != "modules.json"
+const value = enc.encode(JSON.stringify({modules: versions.filter(self)}));
+await Deno.writeFile(list, value)
