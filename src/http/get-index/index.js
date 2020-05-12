@@ -23,7 +23,7 @@ exports.handler = async function handler() {
 </head>
 <body>
 modules
-${ items }
+${ JSON.stringify(items) }
 </body>
 </html>`,
   };
