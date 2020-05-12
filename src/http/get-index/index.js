@@ -3,7 +3,7 @@ let aws = require('aws-sdk')
 exports.handler = async function handler() {
   
   let s3 = new aws.S3
-  let items = await s3.getObject({
+  let modules = await s3.getObject({
     Bucket: process.env.ARC_STATIC_BUCKET,
     Key: `${process.env.ARC_STATIC_FOLDER}/modules.json`,
   }).promise()
@@ -23,7 +23,7 @@ exports.handler = async function handler() {
 </head>
 <body>
 modules
-${ JSON.stringify(items) }
+${modules.Body.toString() }
 </body>
 </html>`,
   };
