@@ -2,7 +2,7 @@
   "scripts": {
     "lint": "deno fmt src/modules",
     "test": "deno test src/modules",
-    "build": "deno run -A build.ts"
+    "build": "deno run -A build.tsx"
   },
   "devDependencies": {
     "@architect/sandbox": "^1.9.6"
