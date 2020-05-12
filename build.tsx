@@ -58,7 +58,7 @@ jsx += '</table>'
 */
 
 // make deno do a jsx
-const repo = 'https://github.com/brianleroux/arc-example-deno-personal-registry'
+const repo = 'https://github.com/brianleroux/arc-example-deno-personal-registry/tree/master'
 const clean = (m: string)=> m.includes('.html') === false
 const jsx = <Index modules={versions.filter(clean)} repo={repo} />
 const body = ReactDOMServer.renderToString(jsx)
