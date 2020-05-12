@@ -26,7 +26,7 @@ export default function Index(props:TableProps) {
   {props.modules.map((mod: string) => {
     let name = mod.split('@')[0]
     let raw = `${mod}/mod.ts`
-    let src = `${props.repo}/src/${name}`
+    let src = `${props.repo}/src/modules/${name}`
     return (
       <tr>
         <td><a href={raw}>{mod}</a></td>
